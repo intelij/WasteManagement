@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyWebApi", "DummyWebApi\DummyWebApi.csproj", "{3B08475B-448B-4C68-864E-C630BD2C0975}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F80245B-77F0-45BE-A6A8-B446F475A81E} = {0F80245B-77F0-45BE-A6A8-B446F475A81E}
+		{F72783D2-49CD-4F48-AAE1-CA59080F2051} = {F72783D2-49CD-4F48-AAE1-CA59080F2051}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasteManagement", "WasteManagement\WasteManagement.csproj", "{0ADB2461-AF99-470D-A2AF-52825436EFBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{DDED81B5-F8B1-430F-982C-5E47557C5086}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureVMPublishModule.psm1 = PublishScripts\AzureVMPublishModule.psm1
+		PublishScripts\Publish-WebApplicationVM.ps1 = PublishScripts\Publish-WebApplicationVM.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{C446437A-6D16-4C55-9639-9446BC8835B3}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\WasteManagement-VM-dev.json = PublishScripts\Configurations\WasteManagement-VM-dev.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildIndia.ViewModel", "BuildIndia.ViewModel\BuildIndia.ViewModel.csproj", "{F72783D2-49CD-4F48-AAE1-CA59080F2051}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildIndia.Service", "BuildIndia.Service\BuildIndia.Service.csproj", "{0F80245B-77F0-45BE-A6A8-B446F475A81E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildIndia.Data", "BuildIndia.Data\BuildIndia.Data.csproj", "{C09E8DAC-801A-42D5-B458-E863509F07D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B08475B-448B-4C68-864E-C630BD2C0975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B08475B-448B-4C68-864E-C630BD2C0975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B08475B-448B-4C68-864E-C630BD2C0975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B08475B-448B-4C68-864E-C630BD2C0975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ADB2461-AF99-470D-A2AF-52825436EFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ADB2461-AF99-470D-A2AF-52825436EFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ADB2461-AF99-470D-A2AF-52825436EFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ADB2461-AF99-470D-A2AF-52825436EFBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F72783D2-49CD-4F48-AAE1-CA59080F2051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72783D2-49CD-4F48-AAE1-CA59080F2051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F72783D2-49CD-4F48-AAE1-CA59080F2051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F72783D2-49CD-4F48-AAE1-CA59080F2051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F80245B-77F0-45BE-A6A8-B446F475A81E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F80245B-77F0-45BE-A6A8-B446F475A81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F80245B-77F0-45BE-A6A8-B446F475A81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F80245B-77F0-45BE-A6A8-B446F475A81E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C09E8DAC-801A-42D5-B458-E863509F07D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09E8DAC-801A-42D5-B458-E863509F07D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09E8DAC-801A-42D5-B458-E863509F07D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09E8DAC-801A-42D5-B458-E863509F07D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C446437A-6D16-4C55-9639-9446BC8835B3} = {DDED81B5-F8B1-430F-982C-5E47557C5086}
+	EndGlobalSection
+EndGlobal

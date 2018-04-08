@@ -1,0 +1,76 @@
+﻿
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12">
+        <div class="panel-group" id="accordion">
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"></h4>
+                    </div>
+
+                    <div class="panel-body">
+                        <form class="form-horizontal" action="">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="vehicleNo">Vehicle Number:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="vehicleNumber" data-bind="value:VehicleNumber" placeholder="Enter vehicle number">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="vehicleNo">Year:</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" min="1900" max="9999" data-bind="value:RegistrationYear" id="registrationYear" placeholder="Enter registration year">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="vehicleNo">Vehicle Details:</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control" id="vehicleDetails" data-bind="value:VehicleDetails" placeholder="Enter vehicle details"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" data-bind="click:addVehicle" class="btn btn-primary">Submit</button>
+                                    <button type="button" data-bind="click:resetForm" class="btn btn-default">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a data-toggle="collapse" data-parent="#accordion" class="btn btn-primary btn-xs pull-right" href="#collapse1"><b>Add New Vehicle</b></a>
+                    <h4 class="panel-title">
+                        <b>Vehicle List</b>
+                    </h4>
+                </div>
+                <div class="panel-collapse">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" data-bind='visible: vehicles().length > 0'>
+                                <thead>
+                                    <tr>
+                                        <th>Vehicle Number</th>
+                                        <th>Year</th>
+                                        <th>Details</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind='foreach: vehicles'>
+                                    <tr>
+                                        <td><span class='required' data-bind='text: VehicleNumber, uniqueName: true' /></td>
+                                        <td><span class='required' data-bind='text: RegistrationYear, uniqueName: true' /></td>
+                                        <td><span class='required' data-bind='text: VehicleDetails, uniqueName: true' /></td>
+                                        <td><button type="button" data-bind='click: $root.removeVehicle' class="btn btn-danger btn-xs"> <span class="glyphicon glyphicon-trash"></span> Delete</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

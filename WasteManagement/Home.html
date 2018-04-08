@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Automated Resource Allocation - Clean India Initiative</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slickgrid@2.3.17/slick.core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js"></script>
+    <script>
+        var baseUrl = 'http://localhost:8085/api/';
+        // Put John's template engine code here...
+        (function () {
+            var cache = {};
+
+            this.tmpl = function tmpl(str, data) {
+                return str;
+                // Provide some basic currying to the user
+                //return data ? fn(data) : fn;
+            };
+        })();
+        // A hash to store our routes:
+        var routes = {};
+        //
+        function route(path, templateId, controller) {
+            routes[path] = { templateId: templateId, controller: controller };
+        }
+        var el = null;
+        function router() {
+            // Lazy load view element:
+            el = el || document.getElementById('view');
+            // Current route url (getting rid of '#' in hash as well):
+            var url = location.hash.slice(1) || '/';
+            // Get route by url:
+            var route = routes[url];
+            // Do we have both a view and a route?
+            if (el && route.controller) {
+                // Render route template with John Resig's template engine:
+                var template = '';
+                $.get($('#' + route.templateId).attr('src'), function (template) {
+
+                    el.innerHTML = tmpl(template, new route.controller());
+                });
+
+            }
+        }
+        // Listen on hash change:
+        window.addEventListener('hashchange', router);
+        // Listen on page load:
+        window.addEventListener('load', router);
+    </script>
+    <script type="text/html" src="index.html" id="index">
+    </script>
+    <script type="text/html" id="route" src="route.html">
+
+    </script>
+    <script type="text/html" id="compactor" src="compactor.html">
+
+    </script>
+    <script type="text/html" id="deployment" src="DeploymentSheet.html">
+    </script>
+    <script type="text/html" id="vehicle" src="vehicle.html">
+    </script>
+    <script type="text/html" id="person" src="person.html">
+    </script>
+    <script type="text/html" id="complain" src="complain.html">
+    </script>
+    <script type="text/html" id="location" src="location.html">
+    </script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px;
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Automated Resource Allocation</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#/">Home</a></li>
+                    <li><a href="#/Deployments">Deployments</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Administration <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/vehicle">Vehicle</a></li>
+                            <li><a href="#/person">Staff</a></li>
+                            <li><a href="#/compactor">Compactor</a></li>
+                            <li><a href="#/route">Route</a></li>
+                            <li><a href="#/complain">Complain List</a></li>
+                            <li><a href="#/location">Location List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="contactus.html" target="_blank">Complain</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Welcome: Admin </a></li>
+                </ul>
+            </div>
+            <!--<div id="view"></div>-->
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content" style="margin-top:15px;">
+            <div class="col-sm-12 text-left" id="view">
+
+            </div>
+        </div>
+    </div>
+    <script src="scripts/home.js"></script>
+</body>
+</html>

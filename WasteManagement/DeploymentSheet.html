@@ -1,0 +1,95 @@
+﻿
+<style>
+    #route_div {
+        margin-top: 30px;
+    }
+
+    #route1, #signin {
+        margin-left: -15px;
+    }
+
+    section {
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+
+    hr {
+        width: 97%;
+    }
+</style>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <form id="signin" class="navbar-form navbar-left" role="form">
+            <div class="input-group">
+                <span class="input-group-addon">Deployment Date</span>
+                <input id="txtDeploymentDate" type="date" class="form-control" name="date" value="" placeholder="date">
+            </div>
+            <button type="submit" class="btn btn-primary" data-bind="click:displayData">Load </button>
+        </form>
+    </div>
+</nav>
+<!-- Section which is going to be repeated-->
+<section>
+    <div class="container-fluid" id="dvContainer" style="display:none;">
+        <div id="routeContainer" data-bind="foreach:deploymentSheet" style="margin-top:20px;">
+            <div class="row form-horizontal" style="border-bottom:1px solid #808080; margin-bottom:20px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-sm-1">
+                            <b>Route No:</b>
+                        </div>
+                        <div class="col-sm-10">
+                            <span type="text" data-bind='text: RouteNo'></span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-sm-1">
+                            <b>Vehicle No:</b>
+                        </div>
+                        <div class="col-sm-10">
+                            <span type="text" data-bind='text: VehicleNo'></span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-sm-1">
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <!--<th>Staff</th>-->
+                                            <th>Name</th>
+                                            <th>Designation</th>
+                                            <th>Mobile</th>
+                                            <!--<th>Substitute</th>-->
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach:Deployments">
+                                        <tr>
+                                            <!--<td>
+                                                <select data-bind="options: $parent.Drivers,optionsText: 'Text',value: StaffId,optionsCaption: 'Select..'"></select>
+                                            </td>-->
+                                            <td><span data-bind="text:StaffName"></span></td>
+                                            <td><span data-bind="text:Designation"></span></td>
+                                            <td><span data-bind="text:Phone"></span></td>
+                                            <!--<td>
+                                                <select data-bind="options:$root.availableDriver,optionsText: 'Text',value: Substitute,optionsCaption: 'Select..'"></select>
+                                            </td>-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
